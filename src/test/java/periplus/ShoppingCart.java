@@ -46,19 +46,18 @@ public class ShoppingCart {
           WebElement submitLoginButton = driver.findElement(By.id("button-login"));
           submitLoginButton.click();
 
-          // Tunggu beberapa detik untuk memastikan login berhasil
+          // Wait a few seconds for the system to load.
           try {
-               Thread.sleep(5000); // Hanya untuk demo, gunakan WebDriverWait untuk yang lebih baik
+               Thread.sleep(5000);
           } catch (InterruptedException e) {
                e.printStackTrace();
           }
 
-          // Step 3: Find a product (gunakan URL produk atau fitur pencarian)
+          // Step 3: Find a product
           WebElement searchBox = driver.findElement(By.id("filter_name"));
           searchBox.sendKeys("Harry Potter");
           searchBox.submit();
 
-          // Tunggu beberapa detik untuk hasil pencarian muncul
           try {
                Thread.sleep(3000);
           } catch (InterruptedException e) {
@@ -69,7 +68,7 @@ public class ShoppingCart {
           WebElement hoverImage = driver.findElement(By.xpath("//img[@class='hover-img' and @src='https://static.periplus.com/vI8P7IPsUsNvX3OZkyLjC3YZsv_l8j2CngQTOhEpp_G4lVIM9R_4trJZ5rl6awyDA--']"));
           ((JavascriptExecutor) driver).executeScript("arguments[0].click();", hoverImage);
 
-          // Tunggu beberapa detik untuk hasil pencarian muncul
+
           try {
                Thread.sleep(3000);
           } catch (InterruptedException e) {
@@ -113,7 +112,7 @@ public class ShoppingCart {
 
      @AfterClass
      public void tearDown() {
-          // Menutup browser setelah pengujian selesai
+          // Close browser
           if (driver != null) {
                driver.quit();
           }
